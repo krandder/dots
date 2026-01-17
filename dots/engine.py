@@ -170,7 +170,6 @@ class GameState:
         lines.append("".join(bottom))
         return "\n".join(lines)
 
-
 class DotsAndBoxes:
     def __init__(self, rows: int, cols: int) -> None:
         if rows <= 0 or cols <= 0:
