@@ -146,6 +146,29 @@ class GameState:
         stacked = np.stack([h_pad, v_pad, player_plane.squeeze(0)], axis=0)
         return stacked
 
+    def render(self) -> str:
+        lines: List[str] = []
+        for r in range(self.rows):
+            top = []
+            for c in range(self.cols):
+                top.append("+")
+                top.append("--" if self.h_edges[r, c] else "  ")
+            top.append("+")
+            lines.append("".join(top))
+            middle = []
+            for c in range(self.cols):
+                middle.append("|" if self.v_edges[r, c] else " ")
+                owner = self.boxes[r, c]
+                middle.append("P" if owner == 0 else "Q" if owner == 1 else " ")
+            middle.append("|" if self.v_edges[r, self.cols] else " ")
+            lines.append("".join(middle))
+        bottom = []
+        for c in range(self.cols):
+            bottom.append("+")
+            bottom.append("--" if self.h_edges[self.rows, c] else "  ")
+        bottom.append("+")
+        lines.append("".join(bottom))
+        return "\n".join(lines)
 
 class DotsAndBoxes:
     def __init__(self, rows: int, cols: int) -> None:

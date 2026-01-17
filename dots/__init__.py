@@ -1,5 +1,6 @@
 from .alphazero import MCTS, PolicyValueNet, RandomPolicyValueNet, self_play
 from .engine import DotsAndBoxes, GameState
+from .model import LinearPolicyValueNet
 
 __all__ = [
     "DotsAndBoxes",
@@ -7,5 +8,6 @@ __all__ = [
     "MCTS",
     "PolicyValueNet",
     "RandomPolicyValueNet",
+    "LinearPolicyValueNet",
     "self_play",
 ]

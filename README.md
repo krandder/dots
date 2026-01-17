@@ -22,6 +22,21 @@ network = RandomPolicyValueNet(game.new_game().action_size)
 trajectory = self_play(game, network, simulations=25, temperature=1.0)
 ```
 
+## Command Line Usage
+
+Run a small self-play training loop (defaults: 4x4 board, 50 simulations per move) and
+save loss plot and best models into `runs/`:
+
+```bash
+python -m dots.cli train
+```
+
+Print a single self-play game to the terminal:
+
+```bash
+python -m dots.cli print-game
+```
+
 ## Notes
 
 - The `RandomPolicyValueNet` is a stub meant to be replaced with a learned model.
